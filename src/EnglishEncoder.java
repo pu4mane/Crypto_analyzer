@@ -1,7 +1,7 @@
 public class EnglishEncoder implements Encoder {
-    private final char firstAlphabetLetter = 'a';
-    private final char firstBigAlphabetLetter = 'A';
-    private final char totalAlphabetLetters = 26;
+    private static final char firstAlphabetLetter = 'a';
+    private static final char firstBigAlphabetLetter = 'A';
+    private static final char totalAlphabetLetters = 26;
 
     @Override
     public char encode(char c, int shift) {
@@ -26,12 +26,12 @@ public class EnglishEncoder implements Encoder {
         }
     }
 
-    private boolean isAlphabetLetter(char c) {
+    public boolean isAlphabetLetter(char c) {
         return Character.isLetter(c);
 
     }
 
-    private boolean isSmallLetter(char c) {
+    public boolean isSmallLetter(char c) {
         return Character.isLowerCase(c);
     }
 }
