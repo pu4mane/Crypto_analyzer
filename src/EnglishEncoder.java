@@ -1,7 +1,7 @@
 public class EnglishEncoder implements Encoder {
-    char firstAlphabetLetter = 'a';
-    char firstBigAlphabetLetter = 'A';
-    int totalAlphabetLetters = 26;
+    private final char firstAlphabetLetter = 'a';
+    private final char firstBigAlphabetLetter = 'A';
+    private final char totalAlphabetLetters = 26;
 
     @Override
     public char encode(char c, int shift) {
