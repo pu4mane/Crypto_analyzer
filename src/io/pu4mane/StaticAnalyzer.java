@@ -1,8 +1,10 @@
+package io.pu4mane;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class StaticAnalyzer {
-    public Map<Character, Integer> getCharHistograms(String text, char rangeFrom, char rangeTo) {
+    public static Map<Character, Integer> getCharHistograms(String text, char rangeFrom, char rangeTo) {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < text.length(); i++) {
             char c = text.toLowerCase().charAt(i);
@@ -14,10 +16,10 @@ public class StaticAnalyzer {
                 }
             }
         }
-        return map;
+        return normalize(map);
     }
 
-    public int compareHistograms(Map<Character, Integer> h1, Map<Character, Integer> h2) {
+    public static int compareHistograms(Map<Character, Integer> h1, Map<Character, Integer> h2) {
         int result = 0;
         for (Map.Entry<Character, Integer> h1Letter : h1.entrySet()) {
             for (Map.Entry<Character, Integer> h2Letter : h2.entrySet()) {
@@ -29,7 +31,7 @@ public class StaticAnalyzer {
         return result;
     }
 
-    private Map<Character, Integer> normalize(Map<Character, Integer> map) {
+    private static Map<Character, Integer> normalize(Map<Character, Integer> map) {
         int max = 0;
         for (Map.Entry<Character, Integer> letter : map.entrySet()) {
             max = (letter.getValue() > max) ? letter.getValue() : max;
